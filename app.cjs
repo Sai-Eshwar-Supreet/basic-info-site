@@ -6,19 +6,19 @@ const app = express();
 const filesPath = path.join(__dirname, 'files');
 
 app.get(['/', '/home'], (req, res, next) => {
-    res.sendFile(path.join(filesPath, 'index.html'), err => {err && next()});
+    res.sendFile(path.join(filesPath, 'index.html'), err => {err && next(err)});
 });
 
 app.get('/contact', (req, res, next) => {
-    res.sendFile(path.join(filesPath, 'contact-me.html'), err => {err && next()})
+    res.sendFile(path.join(filesPath, 'contact-me.html'), err => {err && next(err)})
 });
 
 app.get('/about', (req, res, next) => {
-    res.sendFile(path.join(filesPath, 'about.html'), err => {err && next()});
+    res.sendFile(path.join(filesPath, 'about.html'), err => {err && next(err)});
 });
 
 app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(filesPath, '404.html'), err => {err && next()});
+    res.status(404).sendFile(path.join(filesPath, '404.html'), err => {err && next(err)});
 });
 
 app.use((err, req, res, next) => {
