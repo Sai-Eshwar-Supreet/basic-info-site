@@ -1,6 +1,6 @@
 # basic-info-site
 
-A simple Node.js server that serves static HTML pages based on the request URL.
+A simple Node.js server built with Express that serves static HTML pages based on the request URL.
 
 ## Routes
 
@@ -11,12 +11,24 @@ Core capabilities:
 - /contact → Contact
 - Any other route → 404
 
+## Overview
+
+- Uses Express for routing and middleware handling
+- Serves HTML files using res.sendFile
+- Centralized error handling via middleware
+
 ## Run Locally
 
 ### Setup
 
 ```bash
-node index.cjs
+npm start
+```
+
+Alternative:
+
+```bash
+node --watch --env-file-if-exists=.env app.cjs
 ```
 
 Open: http://localhost:8080
